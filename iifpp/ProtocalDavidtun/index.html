@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASAS | Protocol Davidtun</title>
+    <title>ASAS-Directive | Database</title>
     <style>
         :root {
             --accent: #b366ff;
@@ -21,10 +21,14 @@
         }
 
         .wiki-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 20px;
-            position: relative;
+            /* Creates the strict two-column layout */
+            display: grid;
+            grid-template-columns: 1fr 320px; 
+            gap: 40px;
+            align-items: start;
         }
 
         /* --- HOVER SPOILER SYSTEM --- */
@@ -36,13 +40,16 @@
             transition: background-color 0.1s, color 0.1s;
         }
 
-        /* Reveals when hovering */
         .spoiler:hover {
             background-color: rgba(179, 102, 255, 0.2);
             color: var(--text);
         }
 
-        /* --- LAYOUT FIX (Legacy Style) --- */
+        /* --- LEFT SIDE: CONTENT --- */
+        .wiki-content {
+            min-width: 0; /* Prevents text overflow issues */
+        }
+
         .wiki-title {
             font-size: 32px;
             color: var(--accent);
@@ -50,21 +57,26 @@
             font-weight: bold;
         }
 
-        /* Infobox remains on the right as per legacy */
+        .article-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: justify; /* Optional: gives it a cleaner 'document' look */
+        }
+
+        /* --- RIGHT SIDE: INFOBOX --- */
         .wiki-infobox {
-            float: right;
-            width: 320px;
             background: var(--panel);
             border: 1px solid var(--border);
-            margin: 0 0 20px 20px;
             font-size: 13px;
+            position: sticky; /* Keeps it visible while scrolling long text */
+            top: 20px;
         }
 
         .infobox-header {
             background-color: var(--accent);
             color: #000;
             text-align: center;
-            padding: 6px;
+            padding: 8px;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -95,30 +107,44 @@
         }
 
         .infobox-table td {
-            padding: 8px 12px;
+            padding: 10px 12px;
             border-bottom: 1px solid #333;
         }
 
         .label-cell { color: #888; width: 40%; font-weight: bold; }
 
-        /* --- CONTENT WRAPPING --- */
-        .article-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .article-text p {
-            margin: 0 0 20px 0;
-        }
-
-        @media (max-width: 768px) {
-            .wiki-infobox { float: none; width: 100%; margin: 0 0 20px 0; }
+        /* Responsive Fix for Mobile */
+        @media (max-width: 850px) {
+            .wiki-container {
+                grid-template-columns: 1fr;
+            }
+            .wiki-infobox {
+                position: static;
+                order: -1; /* Puts box at top on mobile */
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="wiki-container">
+        
+        <div class="wiki-content">
+            <div class="wiki-title">Protocol <span class="spoiler">Davidtun</span></div>
+            
+            <div class="article-text">
+                <p>Protocol <span class="spoiler">DAVIDTUN</span> is an ASAS-issued directive classified under the highest order of operational secrecy. Its primary objective is to protect, destroy, and/or conceal extremely classified information from any exposure to the public, unauthorized personnel, or visitors.</p>
+
+                <p>The directive may be executed with the utmost severity—even at the cost of human lives—and, in the most extreme scenarios, the termination of the entire species may be deemed acceptable to uphold the integrity of the information.</p>
+
+                <p>In situations where Protocol <span class="spoiler">DAVIDTUN</span> is activated under a Level 5 Clearance, full control of ASAS will be temporarily transferred to ACG, which holds both the directive and authority to deploy the <span class="spoiler">OMEGATUN WARHEAD</span>, a last-resort measure designed to fulfill all three primary objectives of the protocol: protection, destruction, and concealment of information.</p>
+
+                <p>Additionally, under the directive of Protocol <span class="spoiler">DAVIDTUN</span>, ASAS may initiate lockdown procedures on electronic devices located within or around the facilities of authorized employees. This includes systems suspected of containing redacted or sensitive data, especially during non-operational hours.</p>
+
+                <p>Furthermore, monitors and display units that present status feeds or intelligence-related content in areas with potential public visibility may be automatically blacked out, locked, or rerouted to conceal classified material from unintended viewers.</p>
+            </div>
+        </div>
+
         <aside class="wiki-infobox">
             <div class="infobox-header">PROTOCOL: DAVIDTUN</div>
             <div class="infobox-media">
@@ -134,15 +160,6 @@
             </table>
         </aside>
 
-        <div class="wiki-title">Protocol <span class="spoiler">Davidtun</span></div>
-        
-        <div class="article-text">
-            <p>Protocol <span class="spoiler">DAVIDTUN</span> is an ASAS-issued directive classified under the highest order of operational secrecy. Its primary objective is to protect, destroy, and/or conceal extremely classified information from any exposure to the public, unauthorized personnel, or visitors. The directive may be executed with the utmost severity—even at the cost of human lives—and, in the most extreme scenarios, the termination of the entire species may be deemed acceptable to uphold the integrity of the information.</p>
-
-            <p>In situations where Protocol <span class="spoiler">DAVIDTUN</span> is activated under a Level 5 Clearance, full control of ASAS will be temporarily transferred to ACG, which holds both the directive and authority to deploy the <span class="spoiler">OMEGATUN WARHEAD</span>, a last-resort measure designed to fulfill all three primary objectives of the protocol: protection, destruction, and concealment of information.</p>
-
-            <p>Additionally, under the directive of Protocol <span class="spoiler">DAVIDTUN</span>, ASAS may initiate lockdown procedures on electronic devices located within or around the facilities of authorized employees. This includes systems suspected of containing redacted or sensitive data, especially during non-operational hours. Furthermore, monitors and display units that present status feeds or intelligence-related content in areas with potential public visibility may be automatically blacked out, locked, or rerouted to conceal classified material from unintended viewers.</p>
-        </div>
     </div>
 
     <script src="../topbar.js"></script>
