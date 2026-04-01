@@ -3,206 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IIFPP | Central Database</title>
+    <title>IIFPP | Official Wiki Database</title>
     <style>
         :root {
             --accent: #b366ff;
             --bg: #202020;
-            --panel: #2a2a2a;
-            --border: #444;
+            --panel-bg: #2a2a2a;
+            --border-style: 1px dashed #555;
         }
 
         body {
             margin: 0;
             background-color: var(--bg);
-            color: #ccc; /* Slightly off-white for that "old monitor" feel */
-            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #d1d1d1;
+            font-family: "Calibri", "Candara", sans-serif;
+            line-height: 1.5;
         }
 
-        .content-container {
-            padding: 40px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* --- YELLOW SECTION REDESIGN: THE HEADER BAR --- */
-        .wiki-header-block {
-            border-left: 10px solid var(--accent);
+        .wiki-wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
             padding: 20px;
-            background: linear-gradient(90deg, #2a2a2a 0%, transparent 100%);
-            margin-bottom: 30px;
+            /* Mimics the container lines in your legacy screenshot */
+            border: var(--border-style);
         }
 
-        .wiki-header-block h1 {
-            margin: 0;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 2.2rem;
+        /* --- LEGACY INFOBOX --- */
+        .legacy-infobox {
+            float: right;
+            width: 320px;
+            background: #252525;
+            border: 1px solid #444;
+            margin: 0 0 20px 20px;
+            font-size: 13px;
         }
 
-        .summary-box {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-            align-items: start;
-        }
-
-        .description-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
-        }
-
-        .description-text strong { color: var(--accent); }
-
-        /* --- RED SECTION: THE INFOBOX --- */
-        .wiki-infobox {
-            background-color: var(--panel);
-            border: 1px solid var(--border);
-            border-top: 4px solid var(--accent);
-            padding: 0;
-            font-size: 0.85rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .infobox-title {
-            background: #333;
-            padding: 10px;
+        .infobox-banner {
+            background-color: var(--accent);
+            color: #000;
             text-align: center;
+            padding: 4px;
             font-weight: bold;
-            color: var(--accent);
             text-transform: uppercase;
         }
 
-        .infobox-img-wrap { padding: 10px; text-align: center; }
-        .infobox-img { width: 100%; height: auto; filter: grayscale(20%); }
-
-        .infobox-data { padding: 10px; }
-        .infobox-row {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            padding: 6px 0;
-            border-bottom: 1px dotted #444;
+        .infobox-image-area {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #444;
         }
 
-        .infobox-label { font-weight: bold; color: #888; text-transform: uppercase; font-size: 0.75rem; }
+        .infobox-image-area img { width: 100%; height: auto; }
 
-        /* --- BLUE SECTION REDESIGN: DATA PORTALS --- */
-        .portal-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .portal-node {
+        .infobox-label-bar {
+            background: #444;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
             display: flex;
-            background: #1a1a1a;
-            border: 1px solid var(--border);
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .infobox-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #333;
+        }
+
+        .label-col { color: #888; width: 40%; }
+
+        /* --- CONTENT STYLING --- */
+        .wiki-title {
+            font-size: 28px;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .legacy-divider {
+            border-bottom: var(--border-style);
+            margin: 25px 0;
+        }
+
+        .lore-section {
+            border-left: 3px solid var(--accent);
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+
+        /* --- LEGACY ICON GRID (The "Popular" Section) --- */
+        .popular-header {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .icon-grid {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px 0;
+            border-top: var(--border-style);
+            border-bottom: var(--border-style);
+        }
+
+        .icon-item {
+            text-align: center;
             text-decoration: none;
             color: inherit;
-            transition: 0.2s;
-            position: relative;
-            overflow: hidden;
+            transition: 0.3s;
         }
 
-        .portal-node:hover {
-            border-color: var(--accent);
-            background: #252525;
+        .icon-item:hover { opacity: 0.7; transform: scale(1.05); }
+
+        .icon-img { height: 100px; margin-bottom: 10px; }
+
+        .project-info-footer {
+            margin-top: 30px;
+            font-size: 14px;
         }
 
-        /* The "Accent Strip" on the side of cards */
-        .portal-node::before {
-            content: '';
-            width: 4px;
-            background: var(--accent);
-            display: block;
-        }
-
-        .portal-icon {
-            padding: 20px;
-            font-size: 1.5rem;
-            background: rgba(179, 102, 255, 0.05);
-            display: flex;
-            align-items: center;
-        }
-
-        .portal-content { padding: 15px; }
-        .portal-content h3 {
-            margin: 0 0 5px 0;
-            color: var(--accent);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-        }
-        .portal-content p { margin: 0; font-size: 0.85rem; color: #888; }
-
-        @media (max-width: 850px) {
-            .summary-box, .portal-container { grid-template-columns: 1fr; }
-            .wiki-infobox { order: -1; margin-bottom: 20px; }
+        @media (max-width: 768px) {
+            .legacy-infobox { float: none; width: 100%; margin: 0 0 20px 0; }
+            .icon-grid { flex-direction: column; gap: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="content-container">
-        <div class="wiki-header-block">
-            <h1>IIFPP Knowledge Base</h1>
-        </div>
-
-        <div class="summary-box">
-            <div class="description-text">
-                <p>The <strong>IIFPP</strong> (Innovation Inc Fusion Power Plant) serves as a primary research facility and nuclear power utility. As a tribute project to <strong>Innovation Inc.</strong>, the facility utilizes advanced thermal exchange systems where personnel must actively manage cooling protocols to prevent catastrophic reactor failure.</p>
-                
-                <h3 style="color:var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-top: 30px;">Historical Archive</h3>
-                <p>The facility was established on a remote island by <strong>Yohn Macjames</strong> in the 1950s. Following the director's passing, oversight was transferred to <strong>ffyffhhalop</strong>, leading to the current ASAS-Directive infrastructure.</p>
+    <div class="wiki-wrapper">
+        
+        <aside class="legacy-infobox">
+            <div class="infobox-banner">IDENTITY: IIFPP 📂</div>
+            <div class="infobox-image-area">
+                <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/refs/heads/main/Devs.PN/logo.png" alt="IIFPP Identity">
+                <div style="font-size: 10px; color: #666; margin-top: 5px;">Logo V2.5 🤖</div>
             </div>
+            
+            <div class="infobox-label-bar">👤 IDENTITY 👤</div>
+            
+            <table class="infobox-table">
+                <tr><td class="label-col">Project Began in</td><td>22 may 2035 📅</td></tr>
+                <tr><td class="label-col">First Release</td><td>2023 🚀</td></tr>
+                <tr><td class="label-col">Class</td><td>ASAS-Directive 🛡️</td></tr>
+            </table>
+        </aside>
 
-            <aside class="wiki-infobox">
-                <div class="infobox-title">Identity: IIFPP</div>
-                <div class="infobox-img-wrap">
-                    <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/refs/heads/main/Devs.PN/logo.png" class="infobox-img" alt="IIFPP Logo">
-                </div>
-                <div class="infobox-data">
-                    <div class="infobox-row"><div class="infobox-label">Began</div><div>22 May 2035</div></div>
-                    <div class="infobox-row"><div class="infobox-label">Release</div><div>2023</div></div>
-                    <div class="infobox-row"><div class="infobox-label">Class</div><div>ASAS-Directive</div></div>
-                    <div class="infobox-row"><div class="infobox-label">Status</div><div style="color:#00ff00">Operational</div></div>
-                </div>
-            </aside>
+        <div class="wiki-title">IIFPP ⚛️</div>
+        
+        <p>The <strong>IIFPP</strong>, also known as the Fusion Plant, is an unofficial fan-made game created by Plasmastar Studios as a tribute to <strong>Innovation Inc.</strong> Innovation Inc., at its core, revolves around creating and playing games centered on a reactor. Players influence the outcome by adjusting heat and cooling systems.</p>
+
+        <div class="lore-section">
+            <h3 style="color: var(--accent); margin-top:0;">LoreWise 📜</h3>
+            <p>The IIFPP is a nuclear power plant and research facility originally established by former site director <strong>Yohn Macjames</strong>. After his passing, it was acquired by <strong>ffyffhhalop</strong>. Located on a small island in international waters, it was later incorporated into <strong>Generica</strong> as a subcontinent.</p>
         </div>
 
-        <div class="portal-container">
-            <a href="#" class="portal-node">
-                <div class="portal-icon">📜</div>
-                <div class="portal-content">
-                    <h3>LoreWise</h3>
-                    <p>Access historical records of Generica and the Macjames legacy.</p>
-                </div>
+        <div class="legacy-divider"></div>
+
+        <div class="popular-header">Popular 📈</div>
+        <div class="icon-grid">
+            <a href="#" class="icon-item">
+                <img src="https://via.placeholder.com/100x100/333/b366ff?text=SECTOR+F" class="icon-img" alt="Sector F">
+                <div style="font-weight:bold;">SECTOR F ⚠️</div>
             </a>
-            <a href="#" class="portal-node">
-                <div class="portal-icon">⚠️</div>
-                <div class="portal-content">
-                    <h3>Sector F</h3>
-                    <p>Critical operating procedures and emergency reactor shutdown logs.</p>
-                </div>
+            <a href="#" class="icon-item">
+                <img src="https://via.placeholder.com/100x100/333/b366ff?text=PROTOCOL" class="icon-img" alt="Protocol">
+                <div style="font-weight:bold;">REDACTED 🚫</div>
             </a>
-            <a href="#" class="portal-node">
-                <div class="portal-icon">📂</div>
-                <div class="portal-content">
-                    <h3>Redacted</h3>
-                    <p>Classified ASAS-Directive intelligence and island acquisition data.</p>
-                </div>
-            </a>
-            <a href="#" class="portal-node">
-                <div class="portal-icon">🛠️</div>
-                <div class="portal-content">
-                    <h3>Dev Logs</h3>
-                    <p>Chronological development archives from 2021 to Alpha Launch.</p>
-                </div>
+            <a href="#" class="icon-item">
+                <img src="https://via.placeholder.com/100x100/333/b366ff?text=AFR" class="icon-img" alt="AFR">
+                <div style="font-weight:bold;">AFR ☢️</div>
             </a>
         </div>
+
+        <div class="project-info-footer">
+            <h3 style="color: var(--accent);">Project Information 🛠️</h3>
+            <p>Head project leader <strong>Ffyffhhalop2</strong> started this project back in 2021. In 2023, it was released for beta testing at a cost of 400R before shifting to a free-to-play model to allow a wider audience access to the ASAS-Directive systems.</p>
+        </div>
+
     </div>
 
     <script src="topbar.js"></script>
