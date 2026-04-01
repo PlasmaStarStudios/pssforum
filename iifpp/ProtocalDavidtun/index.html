@@ -24,7 +24,6 @@
             max-width: 1100px;
             margin: 40px auto;
             padding: 20px;
-            /* Creates the strict two-column layout */
             display: grid;
             grid-template-columns: 1fr 320px; 
             gap: 40px;
@@ -45,30 +44,41 @@
             color: var(--text);
         }
 
-        /* --- LEFT SIDE: CONTENT --- */
-        .wiki-content {
-            min-width: 0; /* Prevents text overflow issues */
+        /* --- IMAGE SLIDER (Legacy Style) --- */
+        .slider-container {
+            width: 100%;
+            height: 200px; /* Adjust based on your image height */
+            overflow: hidden;
+            position: relative;
+            background: #1a1a1a;
+            border-bottom: 1px solid #333;
         }
 
-        .wiki-title {
-            font-size: 32px;
-            color: var(--accent);
-            margin-bottom: 20px;
-            font-weight: bold;
+        .slider-wrapper {
+            display: flex;
+            width: 200%; /* Two images wide */
+            height: 100%;
+            animation: slideImages 10s infinite; /* 5 seconds per image */
         }
 
-        .article-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            text-align: justify; /* Optional: gives it a cleaner 'document' look */
+        .slider-wrapper img {
+            width: 50%; /* Each image takes up half of the wrapper */
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* --- RIGHT SIDE: INFOBOX --- */
+        @keyframes slideImages {
+            0%, 45% { transform: translateX(0); } /* Stay on first image */
+            50%, 95% { transform: translateX(-50%); } /* Slide to second image */
+            100% { transform: translateX(0); } /* Snap back to start */
+        }
+
+        /* --- INFOBOX DESIGN --- */
         .wiki-infobox {
             background: var(--panel);
             border: 1px solid var(--border);
             font-size: 13px;
-            position: sticky; /* Keeps it visible while scrolling long text */
+            position: sticky;
             top: 20px;
         }
 
@@ -79,17 +89,6 @@
             padding: 8px;
             font-weight: bold;
             text-transform: uppercase;
-        }
-
-        .infobox-media {
-            padding: 10px;
-            text-align: center;
-            background: #1a1a1a;
-        }
-
-        .infobox-media img {
-            width: 100%;
-            height: auto;
         }
 
         .infobox-sub-label {
@@ -113,15 +112,22 @@
 
         .label-cell { color: #888; width: 40%; font-weight: bold; }
 
-        /* Responsive Fix for Mobile */
+        /* --- CONTENT WRAPPING --- */
+        .wiki-title {
+            font-size: 32px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .article-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
         @media (max-width: 850px) {
-            .wiki-container {
-                grid-template-columns: 1fr;
-            }
-            .wiki-infobox {
-                position: static;
-                order: -1; /* Puts box at top on mobile */
-            }
+            .wiki-container { grid-template-columns: 1fr; }
+            .wiki-infobox { position: static; order: -1; }
         }
     </style>
 </head>
@@ -133,22 +139,22 @@
             <div class="wiki-title">Protocol <span class="spoiler">Davidtun</span></div>
             
             <div class="article-text">
-                <p>Protocol <span class="spoiler">DAVIDTUN</span> is an ASAS-issued directive classified under the highest order of operational secrecy. Its primary objective is to protect, destroy, and/or conceal extremely classified information from any exposure to the public, unauthorized personnel, or visitors.</p>
+                <p>Protocol <span class="spoiler">DAVIDTUN</span> is an ASAS-issued directive classified under the highest order of operational secrecy. Its primary objective is to protect, destroy, and/or conceal extremely classified information from any exposure to the public.</p>
 
-                <p>The directive may be executed with the utmost severity—even at the cost of human lives—and, in the most extreme scenarios, the termination of the entire species may be deemed acceptable to uphold the integrity of the information.</p>
+                <p>The directive may be executed with the utmost severity—even at the cost of human lives—to uphold the integrity of the information. In extreme scenarios, the <span class="spoiler">OMEGATUN WARHEAD</span> may be deployed as a last-resort measure.</p>
 
-                <p>In situations where Protocol <span class="spoiler">DAVIDTUN</span> is activated under a Level 5 Clearance, full control of ASAS will be temporarily transferred to ACG, which holds both the directive and authority to deploy the <span class="spoiler">OMEGATUN WARHEAD</span>, a last-resort measure designed to fulfill all three primary objectives of the protocol: protection, destruction, and concealment of information.</p>
-
-                <p>Additionally, under the directive of Protocol <span class="spoiler">DAVIDTUN</span>, ASAS may initiate lockdown procedures on electronic devices located within or around the facilities of authorized employees. This includes systems suspected of containing redacted or sensitive data, especially during non-operational hours.</p>
-
-                <p>Furthermore, monitors and display units that present status feeds or intelligence-related content in areas with potential public visibility may be automatically blacked out, locked, or rerouted to conceal classified material from unintended viewers.</p>
+                <p>ASAS monitors and display units that present status feeds in areas with potential public visibility may be automatically locked or rerouted under this protocol to prevent unauthorized viewing of redacted data.</p>
             </div>
         </div>
 
         <aside class="wiki-infobox">
             <div class="infobox-header">PROTOCOL: DAVIDTUN</div>
-            <div class="infobox-media">
-                <img src="https://github.com/PlasmaStarStudios/pssforum/blob/main/iifpp/ProtocalDavidtun/image1.png?raw=true" alt="Protocol Screen">
+            
+            <div class="slider-container">
+                <div class="slider-wrapper">
+                    <img src="https://github.com/PlasmaStarStudios/pssforum/blob/main/iifpp/ProtocalDavidtun/image1.png?raw=true" alt="Display 1">
+                    <img src="https://github.com/PlasmaStarStudios/pssforum/blob/main/iifpp/ProtocalDavidtun/image2.png?raw=true" alt="Display 2">
+                </div>
             </div>
             
             <div class="infobox-sub-label">IDENTITY</div>
@@ -163,6 +169,5 @@
     </div>
 
     <script src="../topbar.js"></script>
-
 </body>
 </html>
