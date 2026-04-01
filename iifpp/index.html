@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Site Name</title>
+    <title>PSS Wiki | IIFPP Hub</title>
 
     <style>
         /* 1. DARK MODE BASE */
         body {
             margin: 0;
-            background-color: #202020; /* The eye-saver color */
-            color: #ffffff;            /* Makes default text white so you can read it */
+            background-color: #202020; 
+            color: #ffffff;
             font-family: "Calibri", "Candara", "Segoe UI", "Optima", "Arial", sans-serif;
         }
 
@@ -22,17 +22,128 @@
             line-height: 1.6;
         }
 
-        /* Just to keep your headings visible on the dark background */
         h1, h2, h3 {
-            color: #b366ff; /* A lighter purple that pops on dark grey */
+            color: #b366ff;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+
+        /* 3. WIKI INFO BOX (The sidebar look from your image) */
+        .wiki-infobox {
+            float: right;
+            width: 300px;
+            background-color: #2a2a2a;
+            border: 1px solid #b366ff;
+            margin-left: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .infobox-header {
+            background-color: #b366ff;
+            color: #202020;
+            text-align: center;
+            font-weight: bold;
+            padding: 5px;
+            margin: -15px -15px 15px -15px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .infobox-img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .infobox-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        /* 4. TOPIC GRID (The "Random Topic" navigation) */
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .topic-card {
+            background-color: #2a2a2a;
+            border-left: 4px solid #b366ff;
+            padding: 20px;
+            border-radius: 4px;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+
+        .topic-card:hover {
+            background-color: #353535;
+            transform: translateY(-5px);
+        }
+
+        .topic-card h3 {
+            margin-top: 0;
+            border: none;
+        }
+
+        /* Responsive Fix */
+        @media (max-width: 768px) {
+            .wiki-infobox {
+                float: none;
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="content-container">
-        <h1>Dark Mode Active</h1>
-        <p>Your eyes can rest now. The background is now #202020.</p>
+        <div class="wiki-infobox">
+            <div class="infobox-header">IDENTITY: IIFPP</div>
+            <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/refs/heads/main/Devs.PN/logo.png" class="infobox-img" alt="Project Logo">
+            <div class="infobox-row"><span>Project Began</span> <span>22 May 2035</span></div>
+            <div class="infobox-row"><span>First Release</span> <span>2023</span></div>
+            <div class="infobox-row"><span>Class</span> <span>ASAS-Directive</span></div>
+        </div>
+
+        <h1>IIFPP Knowledge Base</h1>
+        <p>The <strong>IIFPP</strong> (Innovation Inc Fusion Power Plant) is an unofficial fan-made project as a tribute to Innovation Inc. Players influence the outcome by adjusting heat and cooling systems, impacting the reactor's stability.</p>
+        
+        <h2>Lore & History</h2>
+        <p>Originally established by site director <strong>Yohn Macjames</strong>, the island was discovered in the 1950s. After his passing, it was acquired by <em>ffyffhhalop</em>.</p>
+
+        <hr style="border: 0; border-top: 1px solid #444; margin: 40px 0;">
+
+        <h2>Explore the Wiki</h2>
+        <p>Select a portal below to begin your research:</p>
+
+        <div class="topic-grid">
+            <a href="lore.html" class="topic-card">
+                <h3>📜 LoreWise</h3>
+                <p>Dive deep into the history of Generica and the legacy of site director Yohn Macjames.</p>
+            </a>
+
+            <a href="protocols.html" class="topic-card">
+                <h3>⚠️ Sector F Protocols</h3>
+                <p>Standard operating procedures for reactor cooling and emergency shutdown systems.</p>
+            </a>
+
+            <a href="redacted.html" class="topic-card">
+                <h3>📂 Redacted Data</h3>
+                <p>Classified documents regarding the ASAS-Directive and island incorporation.</p>
+            </a>
+
+            <a href="updates.html" class="topic-card">
+                <h3>🛠️ Dev Logs</h3>
+                <p>Trace the development history starting from 2021 to the current free-to-play model.</p>
+            </a>
+        </div>
     </div>
 
     <script src="topbar.js"></script>
