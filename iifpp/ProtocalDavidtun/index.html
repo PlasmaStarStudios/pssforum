@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki Article | PlasmaStarStudios</title>
+    <title>ASAS-Directive | Protocol Archive</title>
     <style>
         :root {
             --accent: #b366ff;
             --bg: #202020;
             --panel: #252525;
-            --text: #d1d1d1;
             --border: #444;
+            --text: #d1d1d1;
         }
 
         body {
@@ -22,102 +22,103 @@
         }
 
         .wiki-container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 20px;
         }
 
-        /* --- ARTICLE HEADER --- */
-        .article-header {
-            border-bottom: 2px solid var(--border);
-            margin-bottom: 25px;
-            padding-bottom: 10px;
+        /* --- SPOILER SYSTEM --- */
+        /* This hides text between || and || until clicked */
+        .spoiler {
+            background-color: #000;
+            color: #000;
+            cursor: pointer;
+            padding: 0 2px;
+            border-radius: 2px;
+            transition: background-color 0.2s, color 0.2s;
         }
 
-        .article-header h1 {
-            color: var(--accent);
-            margin: 0;
-            font-size: 32px;
-            letter-spacing: 0.5px;
+        .spoiler:hover {
+            background-color: #111;
         }
 
-        /* --- ARTICLE LAYOUT --- */
-        .article-body {
-            display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 40px;
+        .spoiler.revealed {
+            background-color: rgba(179, 102, 255, 0.15);
+            color: var(--text);
+            cursor: text;
         }
 
-        /* --- SIDEBAR INFOBOX --- */
-        .article-infobox {
+        /* --- INFOBOX (Legacy Image Reference) --- */
+        .wiki-infobox {
+            float: right;
+            width: 320px;
             background: var(--panel);
             border: 1px solid var(--border);
-            height: fit-content;
+            margin: 0 0 20px 20px;
+            font-size: 13px;
         }
 
-        .infobox-top-bar {
+        .infobox-header {
             background-color: var(--accent);
-            height: 4px;
-        }
-
-        .infobox-image-wrap {
-            padding: 10px;
-            text-align: center;
-        }
-
-        .infobox-image-wrap img {
-            max-width: 100%;
-            border: 1px solid var(--border);
-        }
-
-        .infobox-header-row {
-            background: #333;
-            color: #fff;
+            color: #000;
             text-align: center;
             padding: 6px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 13px;
+        }
+
+        .infobox-media {
+            padding: 10px;
+            text-align: center;
+            background: #1a1a1a;
+        }
+
+        .infobox-media img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #333;
+        }
+
+        .infobox-sub-label {
+            background: #444;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
         .infobox-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 14px;
         }
 
         .infobox-table td {
-            padding: 10px;
+            padding: 8px 12px;
             border-bottom: 1px solid #333;
         }
 
-        .label-cell {
-            color: #888;
-            width: 40%;
-            font-weight: bold;
-        }
+        .label-cell { color: #888; width: 40%; font-weight: bold; }
 
-        /* --- MAIN TEXT STYLING --- */
-        .content-section p {
+        /* --- CONTENT STYLING --- */
+        .page-title {
+            font-size: 32px;
+            color: var(--accent);
             margin-bottom: 20px;
-            font-size: 17px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
         }
 
-        .content-section strong {
-            color: #fff;
+        .content-body {
+            font-size: 1.05rem;
         }
 
-        .highlight-box {
-            background: rgba(179, 102, 255, 0.05);
-            border-left: 4px solid var(--accent);
-            padding: 15px;
-            margin: 25px 0;
-            font-style: italic;
-        }
+        .content-body p { margin-bottom: 20px; }
 
-        @media (max-width: 850px) {
-            .article-body { grid-template-columns: 1fr; }
-            .article-infobox { order: -1; margin-bottom: 30px; width: 100%; }
+        strong { color: #fff; }
+
+        @media (max-width: 768px) {
+            .wiki-infobox { float: none; width: 100%; margin: 0 0 20px 0; }
         }
     </style>
 </head>
@@ -125,57 +126,42 @@
 
     <div class="wiki-container">
         
-        <header class="article-header">
-            <h1>Protocol ||Davidtun||</h1>
-        </header>
-
-        <div class="article-body">
+        <aside class="wiki-infobox">
+            <div class="infobox-header">PROTOCOL: DAVIDTUN</div>
+            <div class="infobox-media">
+                <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/main/Assets/protocol_display.jpg" alt="Protocol Screen">
+            </div>
             
-            <main class="content-section">
-                <p>
-                    <strong>Protocol ||DAVIDTUN||</strong> is an ASAS-issued directive classified under the highest order of operational secrecy. Its primary objective is to protect, destroy, and/or conceal extremely classified information from any exposure to the public, unauthorized personnel, or visitors.
-                </p>
+            <div class="infobox-sub-label">IDENTITY</div>
+            
+            <table class="infobox-table">
+                <tr><td class="label-cell">Installed</td><td>1944</td></tr>
+                <tr><td class="label-cell">CodeName</td><td>Protocol Davidtun</td></tr>
+                <tr><td class="label-cell">Class</td><td>ASAS-Directive</td></tr>
+            </table>
+        </aside>
 
-                <p>
-                    The directive may be executed with the utmost severity—even at the cost of human lives—and, in the most extreme scenarios, the termination of the entire species may be deemed acceptable to uphold the integrity of the information.
-                </p>
+        <h1 class="page-title">Protocol <span class="spoiler">Davidtun</span></h1>
+        
+        <div class="content-body">
+            <p>Protocol <span class="spoiler">DAVIDTUN</span> is an ASAS-issued directive classified under the highest order of operational secrecy. Its primary objective is to protect, destroy, and/or conceal extremely classified information from any exposure to the public, unauthorized personnel, or visitors.</p>
 
-                <div class="highlight-box">
-                    Under a Level 5 Clearance, full control of ASAS will be temporarily transferred to ACG, which holds both the directive and authority to deploy the ||OMEGATUN WARHEAD||.
-                </div>
+            <p>The directive may be executed with the utmost severity—even at the cost of human lives—and, in the most extreme scenarios, the termination of the entire species may be deemed acceptable to uphold the integrity of the information.</p>
 
-                <p>
-                    Additionally, under the directive of Protocol ||DAVIDTUN||, ASAS may initiate lockdown procedures on electronic devices located within or around the facilities of authorized employees. This includes systems suspected of containing redacted or sensitive data, especially during non-operational hours.
-                </p>
-            </main>
+            <p>In situations where Protocol <span class="spoiler">DAVIDTUN</span> is activated under a Level 5 Clearance, full control of ASAS will be temporarily transferred to ACG, which holds both the directive and authority to deploy the <span class="spoiler">OMEGATUN WARHEAD</span>, a last-resort measure.</p>
 
-            <aside class="article-infobox">
-                <div class="infobox-top-bar"></div>
-                
-                <div class="infobox-image-wrap">
-                    <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/main/Assets/protocol_monitor.png" alt="System Overwrite">
-                </div>
-
-                <div class="infobox-header-row">Identity</div>
-                
-                <table class="infobox-table">
-                    <tr>
-                        <td class="label-cell">Installed</td>
-                        <td>1944</td>
-                    </tr>
-                    <tr>
-                        <td class="label-cell">CodeName</td>
-                        <td>Protocol Davidtun</td>
-                    </tr>
-                    <tr>
-                        <td class="label-cell">Class</td>
-                        <td>ASAS-Directive</td>
-                    </tr>
-                </table>
-            </aside>
-
+            <p>Additionally, under the directive of Protocol <span class="spoiler">DAVIDTUN</span>, ASAS may initiate lockdown procedures on electronic devices located within or around the facilities of authorized employees. This includes systems suspected of containing redacted or sensitive data.</p>
         </div>
+
     </div>
+
+    <script>
+        document.querySelectorAll('.spoiler').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('revealed');
+            });
+        });
+    </script>
 
     <script src="topbar.js"></script>
 </body>
