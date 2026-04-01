@@ -249,8 +249,8 @@ const topbarTemplate = `
   <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
   <nav>
     <ul>
-      <li><a href="https://plasmastarstudios.github.io/pssweb/index.html">Home</a></li>
-      <li><a href="https://plasmastarstudios.github.io/pssweb/index.html">LeaveForums</a></li>
+      <li><a href="https://forum.plasmastarstudios.com/iifpp/">Home</a></li>
+      <li><a href="https://plasmastarstudios.github.io/pssweb">LeaveForums</a></li>
     </ul>
   </nav>
 </header>
