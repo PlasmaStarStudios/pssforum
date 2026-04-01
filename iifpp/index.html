@@ -16,7 +16,7 @@
             margin: 0;
             background-color: var(--bg);
             color: #d1d1d1;
-            font-family: "Calibri", "Candara", sans-serif;
+            font-family: "Calibri", "Candara", "Segoe UI", sans-serif;
             line-height: 1.5;
         }
 
@@ -24,11 +24,10 @@
             max-width: 1000px;
             margin: 40px auto;
             padding: 20px;
-            /* Mimics the container lines in your legacy screenshot */
             border: var(--border-style);
         }
 
-        /* --- LEGACY INFOBOX --- */
+        /* --- INFOBOX --- */
         .legacy-infobox {
             float: right;
             width: 320px;
@@ -62,10 +61,6 @@
             padding: 5px;
             font-weight: bold;
             text-transform: uppercase;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
         }
 
         .infobox-table {
@@ -78,7 +73,7 @@
             border-bottom: 1px solid #333;
         }
 
-        .label-col { color: #888; width: 40%; }
+        .label-col { color: #888; width: 45%; font-weight: bold; }
 
         /* --- CONTENT STYLING --- */
         .wiki-title {
@@ -88,22 +83,27 @@
             font-weight: bold;
         }
 
+        .lore-section {
+            border-left: 3px solid var(--accent);
+            padding-left: 15px;
+            margin: 20px 0;
+            background: rgba(179, 102, 255, 0.03);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
         .legacy-divider {
             border-bottom: var(--border-style);
             margin: 25px 0;
         }
 
-        .lore-section {
-            border-left: 3px solid var(--accent);
-            padding-left: 15px;
-            margin: 20px 0;
-        }
-
-        /* --- LEGACY ICON GRID (The "Popular" Section) --- */
+        /* --- ICON GRID --- */
         .popular-header {
             font-size: 14px;
             color: #888;
             margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .icon-grid {
@@ -118,12 +118,12 @@
             text-align: center;
             text-decoration: none;
             color: inherit;
-            transition: 0.3s;
+            transition: 0.2s;
         }
 
-        .icon-item:hover { opacity: 0.7; transform: scale(1.05); }
+        .icon-item:hover { opacity: 0.8; }
 
-        .icon-img { height: 100px; margin-bottom: 10px; }
+        .icon-img { height: 100px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; }
 
         .project-info-footer {
             margin-top: 30px;
@@ -141,51 +141,51 @@
     <div class="wiki-wrapper">
         
         <aside class="legacy-infobox">
-            <div class="infobox-banner">IDENTITY: IIFPP 📂</div>
+            <div class="infobox-banner">IDENTITY: IIFPP</div>
             <div class="infobox-image-area">
                 <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/refs/heads/main/Devs.PN/logo.png" alt="IIFPP Identity">
-                <div style="font-size: 10px; color: #666; margin-top: 5px;">Logo V2.5 🤖</div>
+                <div style="font-size: 10px; color: #666; margin-top: 5px;">Logo V2.5</div>
             </div>
             
-            <div class="infobox-label-bar">👤 IDENTITY 👤</div>
+            <div class="infobox-label-bar">IDENTITY</div>
             
             <table class="infobox-table">
-                <tr><td class="label-col">Project Began in</td><td>22 may 2035 📅</td></tr>
-                <tr><td class="label-col">First Release</td><td>2023 🚀</td></tr>
-                <tr><td class="label-col">Class</td><td>ASAS-Directive 🛡️</td></tr>
+                <tr><td class="label-col">Project Began in</td><td>22 may 2035</td></tr>
+                <tr><td class="label-col">First Release</td><td>2023</td></tr>
+                <tr><td class="label-col">Class</td><td>ASAS-Directive</td></tr>
             </table>
         </aside>
 
-        <div class="wiki-title">IIFPP ⚛️</div>
+        <div class="wiki-title">IIFPP</div>
         
-        <p>The <strong>IIFPP</strong>, also known as the Fusion Plant, is an unofficial fan-made game created by Plasmastar Studios as a tribute to <strong>Innovation Inc.</strong> Innovation Inc., at its core, revolves around creating and playing games centered on a reactor. Players influence the outcome by adjusting heat and cooling systems.</p>
+        <p>The <strong>IIFPP</strong>, also known as the Fusion Plant, is an unofficial fan-made game created by Plasmastar Studios as a tribute to <strong>Innovation Inc.</strong> Innovation Inc., at its core, revolves around creating and playing games centered on a reactor. Players influence the outcome by adjusting heat and cooling systems, which directly impact the reactor's temperature and stability.</p>
 
         <div class="lore-section">
-            <h3 style="color: var(--accent); margin-top:0;">LoreWise 📜</h3>
-            <p>The IIFPP is a nuclear power plant and research facility originally established by former site director <strong>Yohn Macjames</strong>. After his passing, it was acquired by <strong>ffyffhhalop</strong>. Located on a small island in international waters, it was later incorporated into <strong>Generica</strong> as a subcontinent.</p>
+            <h3 style="color: var(--accent); margin-top:0;">LoreWise</h3>
+            <p>The IIFPP is a nuclear power plant and research facility originally established by former site director <strong>Yohn Macjames</strong>. After his passing, it was acquired by <strong>ffyffhhalop</strong>. Located on a small island in international waters, the island was eventually incorporated into <strong>Generica</strong> as a subcontinent.</p>
         </div>
 
         <div class="legacy-divider"></div>
 
-        <div class="popular-header">Popular 📈</div>
+        <div class="popular-header">Popular</div>
         <div class="icon-grid">
             <a href="#" class="icon-item">
-                <img src="https://via.placeholder.com/100x100/333/b366ff?text=SECTOR+F" class="icon-img" alt="Sector F">
-                <div style="font-weight:bold;">SECTOR F ⚠️</div>
+                <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/main/Assets/SectorF.png" class="icon-img" alt="Sector F">
+                <div style="font-weight:bold;">SECTOR F</div>
             </a>
             <a href="#" class="icon-item">
-                <img src="https://via.placeholder.com/100x100/333/b366ff?text=PROTOCOL" class="icon-img" alt="Protocol">
-                <div style="font-weight:bold;">REDACTED 🚫</div>
+                <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/main/Assets/Protocol.png" class="icon-img" alt="Protocol">
+                <div style="font-weight:bold;">REDACTED</div>
             </a>
             <a href="#" class="icon-item">
-                <img src="https://via.placeholder.com/100x100/333/b366ff?text=AFR" class="icon-img" alt="AFR">
-                <div style="font-weight:bold;">AFR ☢️</div>
+                <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/main/Assets/AFR.png" class="icon-img" alt="AFR">
+                <div style="font-weight:bold;">AFR</div>
             </a>
         </div>
 
         <div class="project-info-footer">
-            <h3 style="color: var(--accent);">Project Information 🛠️</h3>
-            <p>Head project leader <strong>Ffyffhhalop2</strong> started this project back in 2021. In 2023, it was released for beta testing at a cost of 400R before shifting to a free-to-play model to allow a wider audience access to the ASAS-Directive systems.</p>
+            <h3 style="color: var(--accent);">Project Information</h3>
+            <p>Head project leader <strong>Ffyffhhalop2</strong> originally started this project back in 2021. In 2023, it was officially released for beta testing. Over time, the game shifted to a free-to-play model, allowing a wider audience to access the facility without charge.</p>
         </div>
 
     </div>
