@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASAS-Directive | Protocol Archive</title>
+    <title>ASAS | Protocol Davidtun</title>
     <style>
         :root {
             --accent: #b366ff;
@@ -18,37 +18,39 @@
             background-color: var(--bg);
             color: var(--text);
             font-family: "Calibri", "Candara", "Segoe UI", sans-serif;
-            line-height: 1.6;
         }
 
         .wiki-container {
             max-width: 1000px;
             margin: 40px auto;
             padding: 20px;
+            position: relative;
         }
 
-        /* --- SPOILER SYSTEM --- */
-        /* This hides text between || and || until clicked */
+        /* --- HOVER SPOILER SYSTEM --- */
         .spoiler {
             background-color: #000;
             color: #000;
-            cursor: pointer;
             padding: 0 2px;
             border-radius: 2px;
-            transition: background-color 0.2s, color 0.2s;
+            transition: background-color 0.1s, color 0.1s;
         }
 
+        /* Reveals when hovering */
         .spoiler:hover {
-            background-color: #111;
-        }
-
-        .spoiler.revealed {
-            background-color: rgba(179, 102, 255, 0.15);
+            background-color: rgba(179, 102, 255, 0.2);
             color: var(--text);
-            cursor: text;
         }
 
-        /* --- INFOBOX (Legacy Image Reference) --- */
+        /* --- LAYOUT FIX (Legacy Style) --- */
+        .wiki-title {
+            font-size: 32px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Infobox remains on the right as per legacy */
         .wiki-infobox {
             float: right;
             width: 320px;
@@ -76,7 +78,6 @@
         .infobox-media img {
             width: 100%;
             height: auto;
-            border: 1px solid #333;
         }
 
         .infobox-sub-label {
@@ -100,22 +101,15 @@
 
         .label-cell { color: #888; width: 40%; font-weight: bold; }
 
-        /* --- CONTENT STYLING --- */
-        .page-title {
-            font-size: 32px;
-            color: var(--accent);
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
+        /* --- CONTENT WRAPPING --- */
+        .article-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
-        .content-body {
-            font-size: 1.05rem;
+        .article-text p {
+            margin: 0 0 20px 0;
         }
-
-        .content-body p { margin-bottom: 20px; }
-
-        strong { color: #fff; }
 
         @media (max-width: 768px) {
             .wiki-infobox { float: none; width: 100%; margin: 0 0 20px 0; }
@@ -125,11 +119,10 @@
 <body>
 
     <div class="wiki-container">
-        
         <aside class="wiki-infobox">
             <div class="infobox-header">PROTOCOL: DAVIDTUN</div>
             <div class="infobox-media">
-                <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/main/Assets/protocol_display.jpg" alt="Protocol Screen">
+                <img src="https://raw.githubusercontent.com/PlasmaStarStudios/pssweb/main/Assets/protocol_screen.jpg" alt="Protocol Screen">
             </div>
             
             <div class="infobox-sub-label">IDENTITY</div>
@@ -141,28 +134,18 @@
             </table>
         </aside>
 
-        <h1 class="page-title">Protocol <span class="spoiler">Davidtun</span></h1>
+        <div class="wiki-title">Protocol <span class="spoiler">Davidtun</span></div>
         
-        <div class="content-body">
-            <p>Protocol <span class="spoiler">DAVIDTUN</span> is an ASAS-issued directive classified under the highest order of operational secrecy. Its primary objective is to protect, destroy, and/or conceal extremely classified information from any exposure to the public, unauthorized personnel, or visitors.</p>
+        <div class="article-text">
+            <p>Protocol <span class="spoiler">DAVIDTUN</span> is an ASAS-issued directive classified under the highest order of operational secrecy. Its primary objective is to protect, destroy, and/or conceal extremely classified information from any exposure to the public, unauthorized personnel, or visitors. The directive may be executed with the utmost severity—even at the cost of human lives—and, in the most extreme scenarios, the termination of the entire species may be deemed acceptable to uphold the integrity of the information.</p>
 
-            <p>The directive may be executed with the utmost severity—even at the cost of human lives—and, in the most extreme scenarios, the termination of the entire species may be deemed acceptable to uphold the integrity of the information.</p>
+            <p>In situations where Protocol <span class="spoiler">DAVIDTUN</span> is activated under a Level 5 Clearance, full control of ASAS will be temporarily transferred to ACG, which holds both the directive and authority to deploy the <span class="spoiler">OMEGATUN WARHEAD</span>, a last-resort measure designed to fulfill all three primary objectives of the protocol: protection, destruction, and concealment of information.</p>
 
-            <p>In situations where Protocol <span class="spoiler">DAVIDTUN</span> is activated under a Level 5 Clearance, full control of ASAS will be temporarily transferred to ACG, which holds both the directive and authority to deploy the <span class="spoiler">OMEGATUN WARHEAD</span>, a last-resort measure.</p>
-
-            <p>Additionally, under the directive of Protocol <span class="spoiler">DAVIDTUN</span>, ASAS may initiate lockdown procedures on electronic devices located within or around the facilities of authorized employees. This includes systems suspected of containing redacted or sensitive data.</p>
+            <p>Additionally, under the directive of Protocol <span class="spoiler">DAVIDTUN</span>, ASAS may initiate lockdown procedures on electronic devices located within or around the facilities of authorized employees. This includes systems suspected of containing redacted or sensitive data, especially during non-operational hours. Furthermore, monitors and display units that present status feeds or intelligence-related content in areas with potential public visibility may be automatically blacked out, locked, or rerouted to conceal classified material from unintended viewers.</p>
         </div>
-
     </div>
 
-    <script>
-        document.querySelectorAll('.spoiler').forEach(item => {
-            item.addEventListener('click', () => {
-                item.classList.toggle('revealed');
-            });
-        });
-    </script>
+    <script src="topbar.js"></script>
 
-    <script src="../topbar.js"></script>
 </body>
 </html>
