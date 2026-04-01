@@ -250,34 +250,6 @@ const topbarTemplate = `
   <nav>
     <ul>
       <li><a href="https://plasmastarstudios.github.io/pssweb/index.html">Home</a></li>
-      <li class="has-dropdown">
-        <a href="https://plasmastarstudios.github.io/pssweb/Projects/">Projects</a>
-        <ul class="dropdown">
-          <li class="has-submenu">
-            <a href="#">Games ❯</a>
-            <ul class="side-menu">
-              <li><a href="https://plasmastarstudios.github.io/pssweb/Projects/games/iifpp/">IIFPP (BETA)</a></li>
-              <li><a href="https://plasmastarstudios.github.io/pssweb/Projects/games/rrp/">RRP</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a href="#">Software ❯</a>
-            <ul class="side-menu">
-              <li><a href="https://plasmastarstudios.github.io/pssweb/Projects/software/incom">Incom (discontinued)</a></li>
-              <li><a href="https://plasmastarstudios.github.io/pssweb/Projects/software/psspocket/">psspocket(reconstruction)</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a href="#">Other ❯</a>
-            <ul class="side-menu">
-              <li><a href="https://plasmastarstudios.github.io/pssweb/Projects/Bots/adp/">ADP</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="https://plasmastarstudios.github.io/pssweb/Account/Consumer/login/">Account</a></li> 
-      <!-- <li><a href="#">🧺</a></li> 
-      <li><a href="#">Version Beta 1.1.13</a></li> -->
     </ul>
   </nav>
 </header>
