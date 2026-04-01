@@ -250,6 +250,7 @@ const topbarTemplate = `
   <nav>
     <ul>
       <li><a href="https://plasmastarstudios.github.io/pssweb/index.html">Home</a></li>
+      <li><a href="https://plasmastarstudios.github.io/pssweb/index.html">LeaveForums</a></li>
     </ul>
   </nav>
 </header>
