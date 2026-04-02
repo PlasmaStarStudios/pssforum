@@ -244,7 +244,7 @@ const topbarTemplate = `
 
 <header>
   <div class="logo">
-  <img src="https://github.com/PlasmaStarStudios/pssforum/blob/main/iifpp/iifppicon.png?raw=true" alt="IIFPPLOGOEXPANDABLE">
+  <img src="https://forum.plasmastarstudios.com/iifpp/iifppicon.png" alt="IIFPPLOGOEXPANDABLE">
   </div>
   <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
   <nav>
