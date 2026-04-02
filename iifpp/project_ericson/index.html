@@ -98,6 +98,8 @@
             background: rgba(255, 102, 102, 0.03);
             padding-top: 10px;
             padding-bottom: 10px;
+            /* This adds the pulse */
+            animation: alertPulse 2s infinite;
         }
 
         .Warning {
@@ -146,6 +148,11 @@
         @media (max-width: 850px) {
             .wiki-container { grid-template-columns: 1fr; }
             .wiki-infobox { position: static; order: -1; }
+        }
+        @keyframes alertPulse {
+            0% { border-left-color: rgb(255, 0, 0); }
+            50% { border-left-color: rgb(100, 0, 0); }
+            100% { border-left-color: rgb(255, 0, 0); }
         }
     </style>
 </head>
