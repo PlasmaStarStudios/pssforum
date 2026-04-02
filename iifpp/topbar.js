@@ -255,7 +255,6 @@ const topbarTemplate = `
   </nav>
 </header>
 `;
-
 // This line "injects" the code into the top of your body
 document.body.insertAdjacentHTML('afterbegin', topbarTemplate);
 
